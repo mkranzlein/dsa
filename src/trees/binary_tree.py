@@ -55,3 +55,12 @@ class NodeBinaryTree:
 
     def delete(self, node: Node):
         raise NotImplementedError
+
+    def inorder_traversal(self):
+        raise NotImplementedError
+
+    def preorder_traversal(self):
+        raise NotImplementedError
+
+    def postorder_traversal(self):
+        raise NotImplementedError
