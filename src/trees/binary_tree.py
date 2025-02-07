@@ -56,11 +56,44 @@ class NodeBinaryTree:
     def delete(self, node: Node):
         raise NotImplementedError
 
-    def inorder_traversal(self):
-        raise NotImplementedError
+    def preorder_traversal(self) -> list[int]:
+        """Traverses tree root, left, right, starting from root."""
+        result = []
+        def _preorder_traversal(root) -> None:
+            if root is None:
+                return
+            result.append(root.val)
+            _preorder_traversal(root.left)
+            _preorder_traversal(root.right)
+        
+        _preorder_traversal(self.root)
+        return result
 
-    def preorder_traversal(self):
-        raise NotImplementedError
+    def inorder_traversal(self) -> list[int]:
+        """Traverses tree left, root, right, starting from bottom left."""
+        result = []
+        def _inorder_traversal(root) -> None:
+            if root is None:
+                return
+            _inorder_traversal(root.left)
+            result.append(root.val)
+            _inorder_traversal(root.right)
+        
+        _inorder_traversal(self.root)
+        return result
 
-    def postorder_traversal(self):
+    def postorder_traversal(self) -> list[int]:
+        """Traverses tree left, right, root, starting from bottom left."""
+        result = []
+        def _postorder_traversal(root) -> None:
+            if root is None:
+                return
+            _postorder_traversal(root.left)
+            _postorder_traversal(root.right)
+            result.append(root.val)
+
+        _postorder_traversal(self.root)
+        return result
+
+    def level_order_traversal(self):
         raise NotImplementedError
