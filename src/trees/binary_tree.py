@@ -95,5 +95,8 @@ class NodeBinaryTree:
         _postorder_traversal(self.root)
         return result
 
-    def level_order_traversal(self):
+    def level_order_traversal(self) -> list[int]:
+        raise NotImplementedError
+
+    def rotate(self) -> None:
         raise NotImplementedError
