@@ -1,0 +1,20 @@
+- topological sort
+- trie
+- union-find
+- a*
+- binary tree
+- minimum spanning tree
+- breadth-first search
+- depth-first search
+- mergesort
+- quicksort
+- heap
+- queue
+- stack
+- sliding window
+- two pointer
+- linked list
+- beam search
+- dynamic programming
+- dicts (hashmaps)
+- binary numbers
