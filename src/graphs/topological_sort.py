@@ -1,6 +1,32 @@
 from collections import defaultdict
 
 
+def dfs(root: int, adjacencies: dict[set[int]],
+        visited: set[int], result_stack: list[int]):
+    """Postorder depth-first search.
+
+    Root goes on stack after recursive call.
+    Reversing postorder result (popping everything from stack) gives
+    Topological ordering.
+
+    Args:
+        root: A root node ID.
+        adjacencies: An adjacency list as a dict of sets.
+        visited: The set of visited nodes.
+        result_stack: A stack (list) of node IDs that have been visited.
+
+    Returns:
+        None. `visited` and `result_stack` are mutable and therfore updated
+        during each call.
+    """
+    for neighbor in adjacencies[root]:
+        if neighbor not in visited:
+            visited.add(neighbor)
+            dfs(neighbor, adjacencies, visited, result_stack)
+    result_stack.append(root)
+    return
+
+
 def topo_sort(g: list[tuple[int]]):
     """Sorts a graph topologically.
 
@@ -13,29 +39,6 @@ def topo_sort(g: list[tuple[int]]):
     Returns:
         A sorted list of vertex IDs. Result not necessarily unique solution.
     """
-    def dfs(root: int, adjacencies: dict[set[int]],
-            visited: set[int], result_stack: list[int]):
-        """Postorder depth-first search.
-
-        Root goes on stack after recursive call.
-        Reversing postorder result (popping everything from stack) gives
-        Topological ordering.
-
-        Args:
-            root: A root node ID.
-            adjacencies: An adjacency list as a dict of sets.
-            visited: The set of visited nodes.
-            result_stack: A stack (list) of node IDs that have been visited.
-
-        Returns:
-            None. `visited` and `result_stack` are mutable and therfore updated
-            during each call."""
-        for neighbor in adjacencies[root]:
-            if neighbor not in visited:
-                visited.add(neighbor)
-                dfs(neighbor, adjacencies, visited, result_stack)
-        result_stack.append(root)
-        return
 
     if len(g) == 0:
         return []
