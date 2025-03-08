@@ -39,7 +39,6 @@ def topo_sort(g: list[tuple[int]]):
     Returns:
         A sorted list of vertex IDs. Result not necessarily unique solution.
     """
-
     if len(g) == 0:
         return []
 
