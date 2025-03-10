@@ -13,7 +13,7 @@ class NodeBinaryTree:
         self.root = root
 
     def insert(self, val: int) -> None:
-        """Inserts into next available position with breadth-first search."""
+        """Insert into next available position with breadth-first search."""
         queue = deque()
         queue.append(self.root)
 
@@ -31,7 +31,7 @@ class NodeBinaryTree:
             queue.append(node.right)
 
     def insert_at(self, val: int, node: Node, insert_left: bool) -> None:
-        """Inserts a value as the left or right child of a specified node."""
+        """Insert a value as the left or right child of a specified node."""
         if insert_left:
             if node.left is not None:
                 raise RuntimeError("Position in tree is not available.")
@@ -58,7 +58,7 @@ class NodeBinaryTree:
         raise NotImplementedError
 
     def preorder_traversal(self) -> list[int]:
-        """Traverses tree root, left, right, starting from root."""
+        """Traverse tree root, left, right, starting from root."""
         result = []
 
         def _preorder_traversal(root) -> None:
@@ -72,7 +72,7 @@ class NodeBinaryTree:
         return result
 
     def inorder_traversal(self) -> list[int]:
-        """Traverses tree left, root, right, starting from bottom left."""
+        """Traverse tree left, root, right, starting from bottom left."""
         result = []
 
         def _inorder_traversal(root) -> None:
@@ -86,7 +86,7 @@ class NodeBinaryTree:
         return result
 
     def postorder_traversal(self) -> list[int]:
-        """Traverses tree left, right, root, starting from bottom left."""
+        """Traverse tree left, right, root, starting from bottom left."""
         result = []
 
         def _postorder_traversal(root) -> None:
