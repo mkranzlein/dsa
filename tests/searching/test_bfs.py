@@ -1,5 +1,5 @@
-from graphs import graph
-from searching.bfs import bfs
+from dsa.graphs import graph
+from dsa.searching.bfs import bfs
 
 
 def test_bfs():

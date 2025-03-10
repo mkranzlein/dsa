@@ -1,6 +1,6 @@
 import random
 
-from sorting.merge_sort import mergesort
+from dsa.sorting.merge_sort import mergesort
 
 def test_mergesort():
     assert mergesort([]) == []
