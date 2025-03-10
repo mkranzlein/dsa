@@ -7,6 +7,7 @@ class Node:
         self.left = None
         self.right = None
 
+
 class NodeBinaryTree:
     def __init__(self, root: Node = None) -> None:
         self.root = root
@@ -59,32 +60,35 @@ class NodeBinaryTree:
     def preorder_traversal(self) -> list[int]:
         """Traverses tree root, left, right, starting from root."""
         result = []
+
         def _preorder_traversal(root) -> None:
             if root is None:
                 return
             result.append(root.val)
             _preorder_traversal(root.left)
             _preorder_traversal(root.right)
-        
+
         _preorder_traversal(self.root)
         return result
 
     def inorder_traversal(self) -> list[int]:
         """Traverses tree left, root, right, starting from bottom left."""
         result = []
+
         def _inorder_traversal(root) -> None:
             if root is None:
                 return
             _inorder_traversal(root.left)
             result.append(root.val)
             _inorder_traversal(root.right)
-        
+
         _inorder_traversal(self.root)
         return result
 
     def postorder_traversal(self) -> list[int]:
         """Traverses tree left, right, root, starting from bottom left."""
         result = []
+
         def _postorder_traversal(root) -> None:
             if root is None:
                 return
