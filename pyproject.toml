@@ -10,3 +10,7 @@ authors = [{name = "Michael Kranzlein"}]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.setuptools]
+packages = ["dsa"]
+package-dir = {"" = "src"}  # https://setuptools.pypa.io/en/latest/userguide/package_discovery.html
