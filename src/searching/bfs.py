@@ -24,9 +24,9 @@ edges = [[1, 3],
          [5, 3]]
 
 adjacencies = defaultdict(set)
-for v_1, v_2 in edges:
-    adjacencies[v_1].add(v_2)
-    adjacencies[v_2].add(v_1)
+for u, v in edges:
+    adjacencies[u].add(v)
+    adjacencies[v].add(u)
 
 print("Adjacencies")
 for k, v in adjacencies.items():
