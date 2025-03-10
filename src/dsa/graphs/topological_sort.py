@@ -28,7 +28,7 @@ def postorder_dfs(root: int, adjacencies: dict[set[int]],
 
 
 def topo_sort(g: list[tuple[int]]):
-    """Sorts a graph topologically.
+    """Sort a graph topologically.
 
     Assumes no cycles in graph. Uses DFS.
 
