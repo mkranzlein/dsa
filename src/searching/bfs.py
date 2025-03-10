@@ -3,20 +3,29 @@
 from collections import defaultdict, deque
 
 
-def bfs(adjacencies: defaultdict[set], source: int):
-    queue = deque([source])
-    queue.append(source)
+def bfs(adjacencies: defaultdict[set], root: int) -> list[int]:
+    """Breadth-first search using a queue.
 
-    visited_vertices = set()
+    Args:
+        adjacencies: An adjacency list (as a dict of sets) describing a graph.
+        root: The vertex ID where BFS should start.
+
+    Returns:
+        A list of nodes in the order they were visited during BFS.
+    """
+    queue = deque([root])
+    visited = set([root])  # set for fast membership lookup
+    visit_order = [root]  # list for ordered result of nodes visited
 
     while queue:
-        vertex = queue.popleft()
-        print("Visited ", vertex)
+        v = queue.popleft()
+        for neighbor in adjacencies[v]:
+            if neighbor not in visited:
+                queue.append(neighbor)
+                visited.add(neighbor)
+                visit_order.append(neighbor)
+    return visit_order
 
-        for neighboring_vertex in adjacencies[vertex]:
-            if neighboring_vertex not in visited_vertices:
-                queue.append(neighboring_vertex)
-                visited_vertices.add(neighboring_vertex)
 
 edges = [[1, 3],
          [2, 3],
@@ -28,7 +37,4 @@ for u, v in edges:
     adjacencies[u].add(v)
     adjacencies[v].add(u)
 
-print("Adjacencies")
-for k, v in adjacencies.items():
-    print(k, v)
-
+print(bfs(adjacencies, 1))
