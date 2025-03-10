@@ -27,3 +27,7 @@ def bfs(adjacencies: defaultdict[set], root: int) -> list[int]:
                 visited.add(neighbor)
                 visit_order.append(neighbor)
     return visit_order
+
+
+def dfs():
+    raise NotImplementedError
