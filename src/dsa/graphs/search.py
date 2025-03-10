@@ -1,6 +1,10 @@
 from collections import defaultdict, deque
 
 
+def beam_search():
+    raise NotImplementedError
+
+
 def bfs(adjacencies: defaultdict[set], root: int) -> list[int]:
     """Breadth-first search using a queue.
 
