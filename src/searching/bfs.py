@@ -1,5 +1,3 @@
-"""Implements breadth-first search with a queue."""
-
 from collections import defaultdict, deque
 
 
