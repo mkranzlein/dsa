@@ -1,5 +1,5 @@
 from dsa.graphs import graph
-from dsa.searching.bfs import bfs
+from dsa.graphs import search
 
 
 def test_bfs():
@@ -8,4 +8,4 @@ def test_bfs():
              [4, 3],
              [5, 3]]
     adjacencies = graph.get_adjacency_list(edges)
-    assert bfs(adjacencies, 1) == [1, 3, 2, 4, 5]
+    assert search.bfs(adjacencies, 1) == [1, 3, 2, 4, 5]
