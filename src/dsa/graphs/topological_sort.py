@@ -1,8 +1,8 @@
 from collections import defaultdict
 
 
-def dfs(root: int, adjacencies: dict[set[int]],
-        visited: set[int], result_stack: list[int]):
+def postorder_dfs(root: int, adjacencies: dict[set[int]],
+                  visited: set[int], result_stack: list[int]):
     """Postorder depth-first search.
 
     Root goes on stack after recursive call.
@@ -22,7 +22,7 @@ def dfs(root: int, adjacencies: dict[set[int]],
     for neighbor in adjacencies[root]:
         if neighbor not in visited:
             visited.add(neighbor)
-            dfs(neighbor, adjacencies, visited, result_stack)
+            postorder_dfs(neighbor, adjacencies, visited, result_stack)
     result_stack.append(root)
     return
 
@@ -30,7 +30,7 @@ def dfs(root: int, adjacencies: dict[set[int]],
 def topo_sort(g: list[tuple[int]]):
     """Sorts a graph topologically.
 
-    Assumes no cycles in graph.
+    Assumes no cycles in graph. Uses DFS.
 
     Args:
         g: A graph expressed as a list of tuples, each representing a directed edge.
@@ -59,6 +59,6 @@ def topo_sort(g: list[tuple[int]]):
         root = sources.pop()  # Pick any unvisited source as root
         # Perform dfs. We don't need a return value from dfs
         # because unvisited_vertices and result_stack are mutable.
-        dfs(root, adjacencies, visited, result_stack)
+        postorder_dfs(root, adjacencies, visited, result_stack)
 
     return reversed(result_stack)
