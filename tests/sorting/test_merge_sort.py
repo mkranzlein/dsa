@@ -2,6 +2,7 @@ import random
 
 from dsa.sorting.merge_sort import mergesort
 
+
 def test_mergesort():
     assert mergesort([]) == []
     assert mergesort([0]) == [0]
