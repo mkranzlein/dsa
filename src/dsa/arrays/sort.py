@@ -1,9 +1,9 @@
-"""Sorts a list of numbers in non-descending order using mergesort."""
+"""Implementations of sorting algorithms for arrays/lists."""
 from math import ceil
 
 
 def merge(a: list[int], b: list[int]) -> list[int]:
-    """Merges two sorted lists."""
+    """Merge two sorted lists."""
     i = 0
     j = 0
     result = []
@@ -29,7 +29,7 @@ def merge(a: list[int], b: list[int]) -> list[int]:
 
 
 def merge_sort(x: list[int]) -> list[int]:
-    """Sorts list of ints in non-decreasing order."""
+    """Sort list of ints in non-decreasing order."""
     # Base cases
     if len(x) == 0 or len(x) == 1:
         return x
