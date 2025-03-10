@@ -23,16 +23,3 @@ def bfs(adjacencies: defaultdict[set], root: int) -> list[int]:
                 visited.add(neighbor)
                 visit_order.append(neighbor)
     return visit_order
-
-
-edges = [[1, 3],
-         [2, 3],
-         [4, 3],
-         [5, 3]]
-
-adjacencies = defaultdict(set)
-for u, v in edges:
-    adjacencies[u].add(v)
-    adjacencies[v].add(u)
-
-print(bfs(adjacencies, 1))
