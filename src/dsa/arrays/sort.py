@@ -28,7 +28,7 @@ def merge(a: list[int], b: list[int]) -> list[int]:
     return result
 
 
-def mergesort(x: list[int]) -> list[int]:
+def merge_sort(x: list[int]) -> list[int]:
     """Sorts list of ints in non-decreasing order."""
     # Base cases
     if len(x) == 0 or len(x) == 1:
@@ -44,4 +44,4 @@ def mergesort(x: list[int]) -> list[int]:
     halfway = ceil(len(x) / 2)
     left_half = x[:halfway]
     right_half = x[halfway:]
-    return merge(mergesort(left_half), mergesort(right_half))
+    return merge(merge_sort(left_half), merge_sort(right_half))
